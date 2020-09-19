@@ -1,7 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 
-class MovieScraper
+class PickAMovie::MovieScraper
   
   
     
