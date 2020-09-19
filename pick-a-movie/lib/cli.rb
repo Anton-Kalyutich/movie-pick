@@ -13,22 +13,24 @@ class CLI
   
   def greeting
     #greets the user and tells him/her the program works
-    puts "Hi there! We'll pick 3 random movies for you!"
-    puts "Press 'enter' when you're ready."
-    gets
+    puts "Hi there! We'll pick few random movies for you!"
+    sleep 1
   end
   
   def list_movies
-    #lists 3 movies randomly selected frm the corrsponding websites
-    puts "Here you go:"
-    puts "1. Lady Bird (2017) - 99% on 'Rotten Tomatoes'."
-    puts "2. God Father (1972) - 9,2 on 'IMDb'."
-    puts "3. Citizen Kane (1941) - 100% on 'Metacritic'."
+    #lists 6 movies randomly selected from https://bestrandoms.com/random-movie-generator
+    puts "Here they are:"
+      puts "1. Polar (2019)"
+      puts "2. Back to the Future Part III (1990)"
+      puts "3. Charlie's Angels (2019)"
+      puts "4. The Boxtrolls (2014)"
+      puts "5. The Descent (2005)"
+      puts "6. The Verdict (1982)"
   end
   
   def menu
     input = nil
-    while input != 'q'
+    while input != 'done'
     #gotta fix weird 'q' behaviour later
       puts "\nEnter '1', '2', or '3' to learn more about a movie (enter 'q' to exit):"
       input = gets.strip.downcase
@@ -39,7 +41,7 @@ class CLI
         puts "More info on movie 2..."
       when "3"
         puts "More info on movie 3..."
-      when 'q'
+      when 'done'
         break
       else
         puts "Sorry, I didn't get it."
@@ -51,7 +53,7 @@ class CLI
     
   
   def bye
-    puts "\nEnjoy the movie!"
+    puts "\nHope that helped, bye-bye now!"
   end
   
 end
