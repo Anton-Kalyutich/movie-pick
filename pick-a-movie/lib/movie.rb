@@ -3,7 +3,7 @@ require 'nokogiri'
 
 class Movie
   
-  attr_accessor :title, :year, :score, :plot, :genre
+  attr_accessor :title, :year, :score, :plot, :genre, :language
   
   @@all = []
   
@@ -32,6 +32,7 @@ class Movie
     
     movie.plot = movie_info.css("p.card-text").text.strip
     movie.genre = movie_info.css("dl.row dd.col-sm-9:first-of-type").text
+    movie.language = movie_info.css("dl.row dd.col-sm-9:nth-of-type(2)")
     
     self.all << movie
     movie
