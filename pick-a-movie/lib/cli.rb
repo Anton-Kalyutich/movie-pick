@@ -18,7 +18,7 @@ class CLI
   end
   
   def list_movies
-    #lists 6 movies randomly selected from https://pickrandom.com/random-movie-generator/
+    #lists 3 movies randomly selected from https://pickrandom.com/random-movie-generator/
     puts "Here they are:"
     @movies = Movie.today
     @movies.each_with_index(1) do |movie, i|
@@ -28,23 +28,17 @@ class CLI
   
   def menu
     input = nil
-    while input != 'done'
-    #gotta fix weird 'q' behaviour later
-      puts "\nEnter '1', '2', or '3' to learn more about a movie (enter 'q' to exit):"
+    while input != 'exit'
+      puts "\nEnter '1', '2', or '3' to learn more about a movie (or enter 'exit'):"
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "More info on movie 1..."
-      when "2"
-        puts "More info on movie 2..."
-      when "3"
-        puts "More info on movie 3..."
-      when 'done'
-        break
+      
+      if input.to_i > 0
+        the_movie = @movies[input.to_i-1]
+        puts "#{i}. #{the_movie.title} (#{the_movie.year})"
+      elsif input == 'list'
+        list_movies
       else
-        puts "Sorry, I didn't get it."
-        sleep 1
-        menu
+        puts "Sorry, I didn't get it. Entet 'list' or 'exit'."
       end
     end
   end
