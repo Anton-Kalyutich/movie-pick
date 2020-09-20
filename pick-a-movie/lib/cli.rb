@@ -2,7 +2,7 @@ require_relative "../lib/scraper.rb"
 require_relative "../lib/movie.rb"
 require 'nokogiri'
 
-class PickAMovie::CLI
+class CLI
   
   def run
     greeting
@@ -20,12 +20,10 @@ class PickAMovie::CLI
   def list_movies
     #lists 6 movies randomly selected from https://bestrandoms.com/random-movie-generator
     puts "Here they are:"
-      puts "1. Polar (2019)"
-      puts "2. Back to the Future Part III (1990)"
-      puts "3. Charlie's Angels (2019)"
-      puts "4. The Boxtrolls (2014)"
-      puts "5. The Descent (2005)"
-      puts "6. The Verdict (1982)"
+    @movies = Movie.today
+    @movies.each_with_index(1) do |movie, i|
+      puts "#{i}. #{movie.title} (#{movie.year})"
+    end
   end
   
   def menu
