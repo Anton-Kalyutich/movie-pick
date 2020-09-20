@@ -24,11 +24,11 @@ class Movie
     
     movie.score = doc.css("div.card-body.text-center.my-3 h1").text
     
-    x = doc.css("div.col.text-center h1").text
-    y = x.split
-    movie = Movie.new
-    movie.year = y.pop
-    movie.title = y.join(" ")
+    movie_info = doc.css("div.col-sm-12 div.card.my-3:first-of-type")
+    title_plus_year = movie_info.css("div.card-header").text.strip
+    title_plus_year_array = title_plus_year.split
+    movie.year = title_plus_year_array.pop[1...-1]
+    movie.title = title_plus_year_array.join(" ")
     self.all << movie
     movie
   end
