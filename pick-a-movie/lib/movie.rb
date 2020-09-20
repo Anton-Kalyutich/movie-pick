@@ -3,7 +3,7 @@ require 'nokogiri'
 
 class Movie
   
-  attr_accessor :title, :year, :score, :plot, :genre, :language, :director
+  attr_accessor :title, :year, :score, :plot, :genre, :language, :director, :cast
   
   @@all = []
   
@@ -22,8 +22,6 @@ class Movie
     doc = Nokogiri::HTML(open("https://suggestmemovie.com/"))
     movie = Movie.new
     
-    movie.score = doc.css("div.card-body.text-center.my-3 h1").text
-    
     movie_info = doc.css("div.col-sm-12 div.card.my-3:first-of-type")
     title_plus_year = movie_info.css("div.card-header").text.strip
     title_plus_year_array = title_plus_year.split
@@ -34,6 +32,10 @@ class Movie
     movie.genre = movie_info.css("dl.row dd.col-sm-9:first-of-type").text
     movie.language = movie_info.css("dl.row dd.col-sm-9:nth-of-type(2)")
     movie.director = movie_info.css("dl.row dd.col-sm-9:nth-of-type(3)").text.strip
+    cast = movie_info.css("dl.row dd.col-sm-9:nth-of-type(4)").text.strip.gsub(/\s+/, " ")
+    movie.cast = cast.split(" , ").join(", ")
+    
+    movie.score = doc.css("div.card-body.text-center.my-3 h1").text
     
     self.all << movie
     movie
