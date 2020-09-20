@@ -18,7 +18,7 @@ class CLI
   end
   
   def list_movies
-    #lists 6 movies randomly selected from https://bestrandoms.com/random-movie-generator
+    #lists 6 movies randomly selected from https://pickrandom.com/random-movie-generator/
     puts "Here they are:"
     @movies = Movie.today
     @movies.each_with_index(1) do |movie, i|
