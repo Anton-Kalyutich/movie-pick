@@ -18,12 +18,10 @@ class Movie
   end
   
   def self.scrape_bestrandoms
-    #Goes to https://bestrandoms.com/random-movie-generator
-    #Scrape properties
-    #Instantiate a Movie and save it to Movie.all
+    #Goes to bestrandoms.com, scrapes properties, instantiates a Movie and saves it
+    
     doc = Nokogiri::HTML(open("https://bestrandoms.com/random-movie-generator"))
     x = doc.css("li.col-md-6:first-of-type b span").text
-    
     movie = Movie.new
     movie.title = x.split("(")[0]
     movie.year = x.split("(")[1][0..-2]
@@ -32,16 +30,14 @@ class Movie
   end
   
   def self.scrape_suggestmemovie
-    #Goes to https://suggestmemovie.com/
-    #Scrape properties
-    #Instantiate a Movie and save it to Movie.all
+    #Goes to suggestmemovie.com, scrapes properties, instantiates a Movie and saves it
+    
     doc = Nokogiri::HTML(open("https://suggestmemovie.com/"))
     x = doc.css("div.col.text-center h1").text
     y = x.split
     movie = Movie.new
     movie.year = y.pop
     movie.title = y.join(" ")
-    
     self.all << movie
     movie
   end
