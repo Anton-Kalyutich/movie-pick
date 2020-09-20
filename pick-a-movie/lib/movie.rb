@@ -38,7 +38,6 @@ class Movie
     movie.score = doc.css("div.card-body.text-center.my-3 h1").text
     
     self.all << movie
-    movie
   end
   
 end
