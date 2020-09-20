@@ -3,7 +3,7 @@ require 'nokogiri'
 
 class Movie
   
-  attr_accessor :title, :year
+  attr_accessor :title, :year, :score
   
   @@all = []
   
@@ -19,8 +19,11 @@ class Movie
   
   def self.scrape_suggestmemovie
     #Goes to suggestmemovie.com, scrapes properties, instantiates a Movie and saves it
-    
     doc = Nokogiri::HTML(open("https://suggestmemovie.com/"))
+    movie = Movie.new
+    
+    movie.score = doc.css("div.card-body.text-center.my-3 h1").text
+    
     x = doc.css("div.col.text-center h1").text
     y = x.split
     movie = Movie.new
