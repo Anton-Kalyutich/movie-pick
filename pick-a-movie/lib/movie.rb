@@ -31,10 +31,11 @@ class Movie
     movie.plot = movie_info.css("p.card-text").text.strip
     movie.genre = movie_info.css("dl.row dd.col-sm-9:first-of-type").text
     movie.language = movie_info.css("dl.row dd.col-sm-9:nth-of-type(2)")
-    movie.director = movie_info.css("dl.row dd.col-sm-9:nth-of-type(3)").text.strip
+    director = movie_info.css("dl.row dd.col-sm-9:nth-of-type(3)").text.strip.gsub(/\s+/, " ")
+    movie.director = director.split(" , ").join(", ")
     cast = movie_info.css("dl.row dd.col-sm-9:nth-of-type(4)").text.strip.gsub(/\s+/, " ")
     movie.cast = cast.split(" , ").join(", ")
-    
+    # movie.director = movie_info.css("dl.row dd.col-sm-9:nth-of-type(3)").text.strip
     movie.score = doc.css("div.card-body.text-center.my-3 h1").text
     
     self.all << movie

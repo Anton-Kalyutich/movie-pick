@@ -8,13 +8,13 @@ class CLI
     greeting
     list_movies
     menu
-    bye
+    goodbye
   end
   
   def greeting
     #greets the user and tells him/her the program works
     puts "Hi there! We'll pick 3 random movies for you!"
-    sleep 1
+    sleep 2
   end
   
   def list_movies
@@ -28,12 +28,13 @@ class CLI
   
   def menu
     input = nil
-    while input != 'exit'
+    until input == 'exit'
       puts "\nEnter '1', '2', or '3' for more info on a movie (or enter 'list' or 'exit'):"
       input = gets.strip.downcase
+      i = input.to_i
       
-      if input.to_i > 0
-        the_movie = @movies[input.to_i-1]
+      if i == 1 || i == 2 || i == 3 
+        the_movie = @movies[i-1]
         puts "\nTitle: #{the_movie.title}"
         puts "Released: #{the_movie.year}"
         puts "Genre: #{the_movie.genre}"
@@ -45,14 +46,13 @@ class CLI
       elsif input == 'list'
         list_movies
       else
-        puts "Sorry, I didn't get it. Enter 'list' or 'exit'."
+        puts "Sorry, I didn't get it." unless input == "exit"
       end
     end
   end
-    
   
-  def bye
-    puts "\nHope that helped, bye-bye now!"
+  def goodbye
+    puts "\nHope we could help, goodbye now!"
   end
   
 end
