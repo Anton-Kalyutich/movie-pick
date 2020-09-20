@@ -13,7 +13,7 @@ class Movie
   
   def self.scrape_movies
     self.scrape_bestrandoms
-    
+    self.scrape_suggestmemovie
     
   end
   
@@ -36,11 +36,12 @@ class Movie
     #Scrape properties
     #Instantiate a Movie and save it to Movie.all
     doc = Nokogiri::HTML(open("https://suggestmemovie.com/"))
-    x = doc.css("li.col-md-6:first-of-type b span").text
-    
+    x = doc.css("div.col.text-center h1").text
+    y = x.split
     movie = Movie.new
-    movie.title = x.split("(")[0]
-    movie.year = x.split("(")[1][0..-2]
+    movie.year = y.pop
+    movie.title = y.join(" ")
+    
     self.all << movie
     movie
   end
