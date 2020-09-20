@@ -1,6 +1,4 @@
-require_relative "../lib/scraper.rb"
 require_relative "../lib/movie.rb"
-require 'nokogiri'
 
 class CLI
   
@@ -13,16 +11,16 @@ class CLI
   
   def greeting
     #greets the user and tells him/her the program works
-    puts "Hi there! We'll pick few random movies for you!"
+    puts "Hi there! We'll pick 3 random movies for you!"
     sleep 1
   end
   
   def list_movies
     #lists 3 movies randomly selected from https://pickrandom.com/random-movie-generator/
     puts "Here they are:"
-    @movies = Movie.today
-    @movies.each_with_index(1) do |movie, i|
-      puts "#{i}. #{movie.title} (#{movie.year})"
+    @movies = Movie.scrape_movies
+    @movies.each_with_index do |movie, i|
+      puts "#{i+1}. #{movie.title} (#{movie.year})"
     end
   end
   
@@ -34,7 +32,7 @@ class CLI
       
       if input.to_i > 0
         the_movie = @movies[input.to_i-1]
-        puts "#{i}. #{the_movie.title} (#{the_movie.year})"
+        puts "#{input.to_i}. #{the_movie.title} (#{the_movie.year})"
       elsif input == 'list'
         list_movies
       else
