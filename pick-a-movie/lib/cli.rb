@@ -1,8 +1,10 @@
 require_relative "../lib/movie.rb"
+require "pry"
 
 class CLI
   
   def run
+    Movie.scrape_movies
     greeting
     list_movies
     menu
@@ -16,9 +18,9 @@ class CLI
   end
   
   def list_movies
-    #lists 3 movies randomly selected from https://pickrandom.com/random-movie-generator/
-    puts "Here they are:"
-    @movies = Movie.scrape_movies
+    #lists 3 movies randomly selected movies from 3 websites
+    puts "Here you go:"
+    @movies = Movie.all
     @movies.each_with_index do |movie, i|
       puts "#{i+1}. #{movie.title} (#{movie.year})"
     end
