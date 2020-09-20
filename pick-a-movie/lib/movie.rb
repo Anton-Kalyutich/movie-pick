@@ -10,9 +10,9 @@ class Movie
     
     movies = []
     
-    movies << self.scrape_pickrandom
+    movies << self.scrape_bestrandom
     
-    #Go to https://pickrandom.com/random-movie-generator/
+    #Go to https://www.bestrandoms.com/random-movie-generator
     #Scrape properties
     #Instantiate a Movie
       
@@ -22,8 +22,9 @@ class Movie
       
   end
   
-  def self.scrape_pickrandom
-    doc = Nokogiri::HTML(open(https://pickrandom.com/random-movie-generator/))
+  def self.scrape_bestrandom
+    doc = Nokogiri::HTML(open(https://www.bestrandoms.com/random-movie-generator))
+    doc.css("li.col-md-6:first-of-type b span").text
     
   end
   
