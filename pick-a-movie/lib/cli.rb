@@ -28,14 +28,14 @@ class CLI
   
   def menu
     input = nil
-    until input == 'exit'
-      puts "\nEnter '1', '2', or '3' for more info on a movie (or enter 'list' or 'exit'):"
+    until input == 'done'
+      puts "\nEnter '1', '2', or '3' for more info on a movie (or enter 'list' or 'done'):"
       input = gets.strip.downcase
       i = input.to_i
       
       if i == 1 || i == 2 || i == 3 
         the_movie = @movies[i-1]
-        puts "\nTitle: #{the_movie.title}"
+        puts "\nTitle: '#{the_movie.title}'"
         puts "Released: #{the_movie.year}"
         puts "Genre: #{the_movie.genre}"
         puts "IMDb score: #{the_movie.score}"
@@ -46,7 +46,8 @@ class CLI
       elsif input == 'list'
         list_movies
       else
-        puts "Sorry, I didn't get it." unless input == "exit"
+        puts "Sorry, I didn't get it." unless input == "done"
+        sleep 0.5
       end
     end
   end
