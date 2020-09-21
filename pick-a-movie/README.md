@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-...
+The program starts with greeting the user and listing 3 randomly picked movies. Upon entering the number of the movie in the list the user can see detailed information about the movie, and then either pick another movie from the list, get the whole list again, or enter 'done' to exit the program. The gems says 'goodbye' upon exiting.
 
 ## Development
 
