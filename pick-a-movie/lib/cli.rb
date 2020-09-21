@@ -1,7 +1,7 @@
 class CLI
   
   def run
-    Scraper.scrape_movies
+    Movie.get_movies
     greeting
     list_movies
     menu
