@@ -1,4 +1,4 @@
-# Pick::A::Movie
+# Movie::Picker
 
 This gem pulls information from https://suggestmemovie.com/, and puts out a list of 3 movies to pick from.
 The user then inouts the number of the movie for more information, goes back to the list or types 'done' to exit the program.
@@ -9,7 +9,7 @@ The mission: when you can't choose what movie to watch next, random pick can sim
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pick-a-movie'
+gem 'movie-picker'
 ```
 
 And then execute:
@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install pick-a-movie
+    $ gem install movie-picker
 
 ## Usage
 
@@ -26,12 +26,10 @@ The program starts with greeting the user and listing 3 randomly picked movies. 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/Anton-Kalyutich/pick-a-movie. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Anton-Kalyutich/movie-picker. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Code of Conduct
-
-Everyone interacting in the Pick::A::Movie project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'cool-clone-8176'/pick-a-movie/blob/master/CODE_OF_CONDUCT.md).
