@@ -11,6 +11,10 @@ class Movie
     @@all
   end
   
+  def initialize
+    self.class.all << self
+  end
+  
   def self.scrape_movies
     3.times do
       self.scrape_suggestmemovie
@@ -37,8 +41,6 @@ class Movie
     movie.cast = cast.split(" , ").join(", ")
     # movie.director = movie_info.css("dl.row dd.col-sm-9:nth-of-type(3)").text.strip
     movie.score = doc.css("div.card-body.text-center.my-3 h1").text
-    
-    self.all << movie
   end
   
 end
