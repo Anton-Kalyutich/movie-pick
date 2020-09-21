@@ -1,6 +1,3 @@
-require_relative "../lib/movie.rb"
-require_relative "../lib/scraper.rb"
-
 class CLI
   
   def run
@@ -31,7 +28,7 @@ class CLI
       i = input.to_i
       movies = Movie.all
       
-      if i > 0 && i < movies.size
+      if i > 0 && i <= movies.size
         the_movie = movies[i-1]
         puts "\nTitle: '#{the_movie.title}'"
         puts "Released: #{the_movie.year}"

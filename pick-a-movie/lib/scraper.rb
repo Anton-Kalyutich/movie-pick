@@ -1,8 +1,3 @@
-require_relative "../lib/movie.rb"
-
-require 'open-uri'
-require 'nokogiri'
-
 class Scraper
   
   def self.scrape_movies
