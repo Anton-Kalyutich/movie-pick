@@ -1,8 +1,8 @@
 class CLI
   
   def run
-    Movie.get_movies
     greeting
+    Movie.get_movies
     list_movies
     menu
     goodbye
