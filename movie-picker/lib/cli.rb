@@ -10,7 +10,6 @@ class CLI
   
   def greeting
     puts "Hi there! We'll pick 3 random movies for you!"
-    sleep 2
   end
   
   def list_movies

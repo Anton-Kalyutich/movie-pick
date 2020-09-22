@@ -8,16 +8,13 @@ class Movie
     @@all
   end
   
-  def initialize(movie_hash = Scraper.scrape_suggestmemovie)
-    movie_hash.each do |key, value|
-      self.send(("#{key}="), value)
-    end
+  def initialize
     self.class.all << self
   end
   
   def self.get_movies
     3.times do
-      Movie.new
+      Scraper.new
     end
   end
   
